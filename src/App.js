@@ -1,5 +1,11 @@
+import ContactApp from "./components/ContactApp";
+
 const App = () => {
-  return <></>;
+  return (
+    <>
+      <ContactApp />
+    </>
+  );
 };
 
 export default App;
