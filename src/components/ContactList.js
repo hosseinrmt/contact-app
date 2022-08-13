@@ -1,12 +1,6 @@
 import { IoMdContact, IoMdTrash } from "react-icons/io";
-import { toast } from "react-toastify";
 
-const ContactList = ({ contacts, setContacts }) => {
-  const deleteHandler = (id) => {
-    setContacts(contacts.filter((contact) => contact.id !== id));
-    toast.success("Contact deleted successfully!");
-  };
-
+const ContactList = ({ contacts, onDelete }) => {
   return (
     <div className="contact-list">
       {contacts.map((contact) => {
@@ -23,7 +17,7 @@ const ContactList = ({ contacts, setContacts }) => {
 
             <button
               className="delete-contact"
-              onClick={() => deleteHandler(contact.id)}
+              onClick={() => onDelete(contact.id)}
             >
               <IoMdTrash />
             </button>

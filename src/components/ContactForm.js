@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { toast } from "react-toastify";
 
-const ContactForm = ({ setContacts, contacts }) => {
+const ContactForm = ({ onClick }) => {
   const [formValues, setFormValues] = useState({
     name: "",
     email: "",
@@ -13,22 +12,17 @@ const ContactForm = ({ setContacts, contacts }) => {
     setFormValues({ ...formValues, [e.target.name]: value });
   };
 
-  const submitHandler = (e) => {
+  const submitForm = (e) => {
     e.preventDefault();
-    if (formValues.name.trim() === "" || formValues.email.trim() === "") {
-      toast.error("Name and email are required!");
-      return;
-    }
-    setContacts([...contacts, { ...formValues, id: Date.now() }]);
+    onClick(formValues);
     setFormValues({ name: "", email: "" });
-    toast.success("Contact added successfully!");
   };
 
   return (
     <div className="add-contact-form">
       <h2>Add Contact</h2>
 
-      <form className="contact-form" onSubmit={submitHandler}>
+      <form className="contact-form" onSubmit={submitForm}>
         <label>Name</label>
         <input
           maxLength={40}
