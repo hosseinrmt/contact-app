@@ -1,19 +1,15 @@
 import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
 import ContactForm from "./components/ContactForm";
 import ContactList from "./components/ContactList";
 import { ToastContainer } from "react-toastify";
+import { Route, Switch } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
 
   const addContactHandler = (formValues) => {
-    if (formValues.name && formValues.email) {
-      setContacts([...contacts, { ...formValues, id: Date.now() }]);
-      return;
-    }
-    toast.error("Name and email are required");
+    setContacts([...contacts, { ...formValues, id: Date.now() }]);
   };
 
   const deleteContactHandler = (id) => {
@@ -47,8 +43,26 @@ const App = () => {
         <nav>
           <h1>Contact Manager</h1>
         </nav>
-        <ContactForm onClick={addContactHandler} />
-        <ContactList onDelete={deleteContactHandler} contacts={contacts} />
+
+        <Switch>
+          <Route
+            path="/add-contact"
+            render={() => <ContactForm onClick={addContactHandler} />}
+          />
+          <Route
+            path="/"
+            exact={true}
+            render={() => (
+              <ContactList
+                onDelete={deleteContactHandler}
+                contacts={contacts}
+              />
+            )}
+          />
+        </Switch>
+
+        {/* <ContactForm onClick={addContactHandler} /> */}
+        {/* <ContactList onDelete={deleteContactHandler} contacts={contacts} /> */}
       </div>
     </>
   );

@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { withRouter } from "react-router-dom";
+import { toast } from "react-toastify";
 
-const ContactForm = ({ onClick }) => {
+const ContactForm = ({ onClick, history }) => {
   const [formValues, setFormValues] = useState({
     name: "",
     email: "",
@@ -14,8 +16,13 @@ const ContactForm = ({ onClick }) => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    onClick(formValues);
-    setFormValues({ name: "", email: "" });
+
+    if (formValues.name && formValues.email) {
+      onClick(formValues);
+      history.push("/");
+    } else {
+      toast.error("Name and email are required");
+    }
   };
 
   return (
@@ -43,12 +50,17 @@ const ContactForm = ({ onClick }) => {
           type="email"
         />
 
-        <button className="addToContactBtn" type="submit">
-          Add
-        </button>
+        <div>
+          <button className="cancelBtn" onClick={() => history.push("/")}>
+            Cancel
+          </button>
+          <button className="addToContactBtn" type="submit">
+            Add
+          </button>
+        </div>
       </form>
     </div>
   );
 };
 
-export default ContactForm;
+export default withRouter(ContactForm);

@@ -1,8 +1,14 @@
 import { IoMdContact, IoMdTrash } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const ContactList = ({ contacts, onDelete }) => {
   return (
     <div className="contact-list">
+      <h2>Contacts List</h2>
+      <Link to="/add-contact">
+        <button className="addNewBtn">New Contact ?</button>
+      </Link>
+
       {contacts.map((contact) => {
         return (
           <section className="single-contact" key={contact.id}>
@@ -10,7 +16,7 @@ const ContactList = ({ contacts, onDelete }) => {
               <IoMdContact className="contact-icon" />
 
               <div>
-                <p>{contact.name}</p>
+                <p className="contact-name">{contact.name}</p>
                 <p>{contact.email}</p>
               </div>
             </div>
