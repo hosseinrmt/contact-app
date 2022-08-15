@@ -4,6 +4,7 @@ import ContactList from "./components/ContactList";
 import { ToastContainer } from "react-toastify";
 import { Route, Switch } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+import ContactDetail from "./components/ContactDetail";
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
@@ -45,6 +46,7 @@ const App = () => {
         </nav>
 
         <Switch>
+          <Route path="/contact/:id" component={ContactDetail} />;
           <Route
             path="/add-contact"
             render={() => <ContactForm onClick={addContactHandler} />}

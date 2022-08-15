@@ -3,75 +3,91 @@
 @tailwind utilities;
 
 @layer components {
-    .contact-app {
-        @apply flex flex-col container mx-auto p-4
-    }
+  .contact-app {
+    @apply flex flex-col container mx-auto p-4;
+  }
 
-    nav {
-        @apply font-semibold text-4xl mx-auto mb-6 border-b-8 rounded-lg border-slate-600 w-full text-center
-    }
+  nav {
+    @apply font-semibold text-4xl mx-auto mb-6 border-b-8 rounded-lg border-slate-600 w-full text-center;
+  }
 
-    h1 {
-        @apply mb-4
-    }
+  h1 {
+    @apply mb-4;
+  }
 
-    h2{
-        @apply ml-2
-    }
+  h2 {
+    @apply ml-2;
+  }
 
-    .add-contact-form {
-        @apply p-4
-    }
+  .add-contact-form {
+    @apply p-4;
+  }
 
-    .contact-form {
-        @apply flex flex-col
-    }
+  .contact-form {
+    @apply flex flex-col;
+  }
 
-    .contact-list {
-        @apply flex flex-col gap-y-2
-    }
+  .contact-list {
+    @apply flex flex-col gap-y-2;
+  }
 
-    .single-contact {
-        @apply flex flex-col md:flex-row justify-between gap-4 p-4 border-y-2
-    }
+  .single-contact {
+    @apply flex flex-col md:flex-row justify-between gap-4 p-4 border-y-2 cursor-pointer;
+  }
 
-    .L-single-contact {
-        @apply flex items-center gap-x-1
-    }
+  .L-single-contact {
+    @apply flex items-center gap-x-1;
+  }
 
-    .contact-icon {
-        @apply w-10 h-10 mr-2 md:w-12 md:h-12 
-    }
+  .contactDetailIcon {
+    @apply text-white w-16 h-16;
+  }
 
-    .contact-name {
-        @apply font-semibold text-lg
-    }
+  .contact-icon {
+    @apply text-blue-600 w-10 h-10 mr-2 md:w-12 md:h-12;
+  }
 
-    .delete-contact{
-        @apply bg-red-500 text-white rounded-md p-2 w-8 self-end md:w-10 md:h-10 md:text-2xl
-    }
+  .contact-name {
+    @apply font-semibold text-lg;
+  }
 
-    .addToContactBtn {
-        @apply bg-blue-500 text-white md:w-44 font-bold py-2 px-4 rounded-lg 
-    }
+  .contact-detail {
+    @apply flex flex-col flex-wrap gap-y-4 items-center text-white mx-auto p-4 rounded-xl bg-blue-600;
+  }
 
-    .cancelBtn {
-        @apply border-red-500 border-2 text-red-500 md:w-44 font-bold py-2 px-4 rounded-lg mr-4
-    }
+  .contactMainDetail {
+    @apply text-lg break-all w-52 text-center;
+  }
 
-    .addNewBtn{
-        @apply border-2 md:w-44 font-semibold p-1 rounded-lg mb-4 mr-4 float-right
-    }
+  .ArrowBackIcon {
+    @apply w-7 h-7;
+  }
 
-    h2 {
-        @apply text-2xl font-semibold mb-4
-    }
+  .delete-contact {
+    @apply bg-red-500 text-white rounded-md p-2 w-8 self-end md:w-10 md:h-10 md:text-2xl;
+  }
 
-    label {
-        @apply mb-1 text-lg
-    }
+  .addToContactBtn {
+    @apply bg-blue-500 text-white md:w-44 font-bold py-2 px-4 rounded-lg;
+  }
 
-    input {
-        @apply border border-gray-400 p-2 rounded-lg mb-6
-    }
+  .cancelBtn {
+    @apply border-red-500 border-2 text-red-500 md:w-44 font-bold py-2 px-4 rounded-lg mr-4;
+  }
+
+  .addNewBtn {
+    @apply border-2 md:w-44 font-semibold p-1 rounded-lg mb-4 mr-4 float-right;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold mb-4;
+  }
+
+  label {
+    @apply mb-1 text-lg;
+  }
+
+  input {
+    @apply border border-gray-400 p-2 rounded-lg mb-6;
+  }
 }

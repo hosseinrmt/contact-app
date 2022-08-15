@@ -32,7 +32,7 @@ const ContactForm = ({ onClick, history }) => {
       <form className="contact-form" onSubmit={submitForm}>
         <label>Name</label>
         <input
-          maxLength={40}
+          maxLength={30}
           value={formValues.name}
           name="name"
           onChange={changeHandler}
@@ -42,7 +42,7 @@ const ContactForm = ({ onClick, history }) => {
 
         <label>Email</label>
         <input
-          maxLength={40}
+          maxLength={30}
           value={formValues.email}
           name="email"
           onChange={changeHandler}
