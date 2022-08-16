@@ -32,11 +32,11 @@
   }
 
   .single-contact {
-    @apply flex flex-col md:flex-row justify-between gap-4 p-4 border-y-2 cursor-pointer;
+    @apply flex flex-col md:flex-row justify-between gap-4 p-4 border-y-2;
   }
 
   .L-single-contact {
-    @apply flex items-center gap-x-1;
+    @apply flex items-center gap-x-1 cursor-pointer;
   }
 
   .contactDetailIcon {

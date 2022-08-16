@@ -5,28 +5,30 @@ import { ToastContainer } from "react-toastify";
 import { Route, Switch } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import ContactDetail from "./components/ContactDetail";
+import getContacts from "./service/getAllContactsService";
+import addNewComment from "./service/addNewContactService";
+import deleteComment from "./service/deleteContactService";
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
 
   const addContactHandler = (formValues) => {
-    setContacts([...contacts, { ...formValues, id: Date.now() }]);
+    const newContact = {
+      ...formValues,
+      id: Date.now(),
+    };
+    setContacts([...contacts, newContact]);
+    addNewComment(formValues);
   };
 
   const deleteContactHandler = (id) => {
     setContacts(contacts.filter((contact) => contact.id !== id));
+    deleteComment(id);
   };
 
   useEffect(() => {
-    const contacts = JSON.parse(localStorage.getItem("contacts"));
-    if (contacts) {
-      setContacts(contacts);
-    }
+    getContacts().then((res) => setContacts(res.data));
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem("contacts", JSON.stringify(contacts));
-  }, [contacts]);
 
   return (
     <>
@@ -62,9 +64,6 @@ const App = () => {
             )}
           />
         </Switch>
-
-        {/* <ContactForm onClick={addContactHandler} /> */}
-        {/* <ContactList onDelete={deleteContactHandler} contacts={contacts} /> */}
       </div>
     </>
   );
