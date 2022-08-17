@@ -1,5 +1,5 @@
 import http from "./httpService";
 
-export default function addNewComment(data) {
+export default function addNewContact(data) {
   return http.post("/contacts", data);
 }

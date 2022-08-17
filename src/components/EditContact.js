@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
+import getContacts from "../service/getAllContactsService";
 import getSingleContact from "../service/getSingleContactService";
+import updateContact from "../service/updateContactService";
 
-const EditContact = ({ onClick, history, match }) => {
+const EditContact = ({ history, match }) => {
   const [formValues, setFormValues] = useState({
     name: "",
     email: "",
@@ -16,7 +18,8 @@ const EditContact = ({ onClick, history, match }) => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    onClick(formValues, match.params.id);
+    updateContact(match.params.id, formValues);
+    getContacts();
     history.push("/");
   };
 

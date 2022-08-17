@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { withRouter } from "react-router-dom";
 import { toast } from "react-toastify";
+import addNewContact from "../service/addNewContactService";
+import getContacts from "../service/getAllContactsService";
 
-const ContactForm = ({ onClick, history }) => {
+const ContactForm = ({ history }) => {
   const [formValues, setFormValues] = useState({
     name: "",
     email: "",
@@ -15,10 +17,11 @@ const ContactForm = ({ onClick, history }) => {
   };
 
   const submitForm = (e) => {
-    e.preventDefault();
-
     if (formValues.name && formValues.email) {
-      onClick(formValues);
+      e.preventDefault();
+      const newContact = { ...formValues, id: Date.now() };
+      addNewContact(newContact);
+      getContacts();
       history.push("/");
     } else {
       toast.error("Name and email are required");

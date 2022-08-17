@@ -1,5 +1,5 @@
 import http from "./httpService";
 
-export default function deleteComment(data) {
+export default function deleteContact(data) {
   return http.delete(`/contacts/${data}`);
 }
