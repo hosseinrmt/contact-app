@@ -80,7 +80,7 @@
   }
 
   .addNewBtn {
-    @apply border-2 md:w-44 font-semibold p-1 rounded-lg mb-4 mr-4 float-right;
+    @apply border-2 md:w-44 font-semibold p-1 rounded-lg mb-4 mr-4;
   }
 
   h2 {
