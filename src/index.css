@@ -67,6 +67,10 @@
     @apply bg-red-500 text-white rounded-md p-2 w-8 self-end md:w-10 md:h-10 md:text-2xl;
   }
 
+  .edit-contact {
+    @apply bg-blue-500 text-white rounded-md p-2 w-8 mr-4 self-end md:w-10 md:h-10 md:text-2xl;
+  }
+
   .addToContactBtn {
     @apply bg-blue-500 text-white md:w-44 font-bold py-2 px-4 rounded-lg;
   }
